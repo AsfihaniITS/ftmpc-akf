@@ -27,7 +27,7 @@ xlt=[x1(1);x2(1);x3(1)];
 xt=xlt;
 xa(:,1)=xt;
 xr(:,1)=xt;
-z(:,1) = C*xr(:,1) + normrnd(0,sqrt(r),1,1);%output vector
+
 
 %Define weighting matrices Q and R for the output and input 
 R=0.01 *eye(Np,Np);
@@ -43,8 +43,8 @@ q2 = 10^(-10); %model error of yaw rate
 q3 = 10^(-10); %model error of yaw angle
 r = 10^(-10); %measurement error
 
-pa(:,:,1) = [10^(-12) 0 0;0 10^(-12) 0;0 0 10^(-12)]; %initial value ??of the error covariance matrix
-
+pa(:,:,1) = [1 0 0;0 1 0;0 0 1]; %initial value of the error covariance matrix
+z(:,1) = C*xr(:,1) + normrnd(0,sqrt(r),1,1);%output vector
 %define references for the yaw angle
 reff=linspace(1,360,TotTime);
 for i=1:TotTime
