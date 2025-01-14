@@ -48,5 +48,7 @@ cek_kontrol1=rank(M1);
 cek_kontrol=rank(M2);
 
 %=====Check Observability
+O=[Cd;Cd*Ad;Cd*(Ad)^2];
 cek_teramat=rank(O);
+
 [A,B,C,D]=c2dm(Ad,Bd,Cd,Dd,Delta_t);
